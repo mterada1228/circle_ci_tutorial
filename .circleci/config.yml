@@ -7,7 +7,9 @@ workflows:
   build-and-deploy:
     jobs:
       - aws-ecr/build_and_push_image:
+          context: private-aws-configure
           account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
           repo: ecr-tutorial
           region: ${AWS_REGION}
           tag: "${CIRCLE_SHA1}"
+
