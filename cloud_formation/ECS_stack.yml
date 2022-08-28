@@ -52,7 +52,7 @@ Resources:
   ECSCluster:
     Type: 'AWS::ECS::Cluster'
     Properties:
-      ClusterName: !Sub "${PJPrefix}-Cluster"
+      ClusterName: !Sub "${PJPrefix}-cluster"
   # ------------------------------------------------ #
   # Create Task Definition                           #
   # ------------------------------------------------ #

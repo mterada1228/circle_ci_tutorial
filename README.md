@@ -2,6 +2,21 @@
 
 ## Setup
 
+### Create ECR Repository
+
+``` sh
+aws --profile <username> ecr create-repository \
+    --repository-name ${AWS_RESOURCE_NAME_PREFIX}
+```
+
+### Delete ECR Repository
+
+``` sh
+aws --profile <username> ecr delete-repository \
+    --repository-name ${AWS_RESOURCE_NAME_PREFIX} \
+    --force
+```
+
 ### Create ECS
 
 ``` sh
@@ -9,7 +24,7 @@ cd cloud_formation
 aws --profile <username> cloudformation create-stack \
     --stack-name <stack name> \
     --template-body file://ECS_stack.yml \
-    --parameters ParameterKey=PJPrefix,ParameterValue=<project name> \
+    --parameters ParameterKey=PJPrefix,ParameterValue=${AWS_RESOURCE_NAME_PREFIX} \
                  ParameterKey=AWSAccountID,ParameterValue=<aws account id> \
                  ParameterKey=SecurityGroup,ParameterValue=<security group id> \
                  ParameterKey=Subnet,ParameterValue=<subnet id> \
@@ -19,6 +34,6 @@ aws --profile <username> cloudformation create-stack \
 ### Delete ECS
 
 ``` sh
-aws --profile privateUser cloudformation delete-stack \
+aws --profile <username> cloudformation delete-stack \
     --stack-name <stack name>
 ```
