@@ -68,8 +68,8 @@ Resources:
               awslogs-group: awslogs-ecs
               awslogs-region: ap-northeast-1
               awslogs-create-group: true
-              awslogs-stream-prefix: !Sub "awslogs-${PJPrefix}-app"
-          Name: !Sub "${PJPrefix}-app"
+              awslogs-stream-prefix: !Sub "awslogs-${PJPrefix}-service"
+          Name: !Sub "${PJPrefix}-service"
           PortMappings:
             - ContainerPort: 80
               HostPort: 80
