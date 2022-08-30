@@ -76,7 +76,7 @@ Resources:
               Protocol: tcp
       Cpu: '256'
       ExecutionRoleArn: !Sub "arn:aws:iam::${AWSAccountID}:role/ecsTaskExecutionRole"
-      Family: !Sub "${PJPrefix}-task-definition"
+      Family: !Sub "${PJPrefix}-service"
       Memory: '512'
       NetworkMode: awsvpc
       RequiresCompatibilities:
